@@ -3,11 +3,9 @@ package com.jscboy.meetandeat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.facebook.FacebookSdk;
-
 public class MainActivity extends AppCompatActivity {
 
-    private NeabyHost nearbyHost;
+    private NearbyHost nearbyHost;
     private NearbyClient nearbyClient;
 
     @Override
@@ -15,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nearbyHost = NeabyHost.getHostInstance(this);
+        nearbyHost = NearbyHost.getHostInstance(this);
         nearbyClient = NearbyClient.getClientInstance(this);
     }
 

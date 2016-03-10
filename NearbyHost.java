@@ -8,26 +8,26 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.nearby.Nearby;
 import com.google.android.gms.nearby.connection.Connections;
 
-public class NeabyHost implements GoogleApiClient.ConnectionCallbacks,
+public class NearbyHost implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         Connections.ConnectionRequestListener, //
         Connections.MessageListener, //
         Connections.EndpointDiscoveryListener {
 
-    private static NeabyHost nearbyHost;
+    private static NearbyHost nearbyHost;
     private GoogleApiClient mGoogleApiClient;
     private Context mContext;
 
     private boolean isConnected = false;
 
-    public static NeabyHost getHostInstance(Context mContext) {
+    public static NearbyHost getHostInstance(Context mContext) {
         if (nearbyHost == null) {
-            nearbyHost = new NeabyHost(mContext);
+            nearbyHost = new NearbyHost(mContext);
         }
         return nearbyHost;
     }
 
-    private NeabyHost(Context mContext) {
+    private NearbyHost(Context mContext) {
         this.mContext = mContext;
 
         mGoogleApiClient = new GoogleApiClient.Builder(mContext)
