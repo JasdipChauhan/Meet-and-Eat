@@ -17,6 +17,7 @@ public class NearbyHost implements GoogleApiClient.ConnectionCallbacks,
     private static NearbyHost nearbyHost;
     private GoogleApiClient mGoogleApiClient;
     private Context mContext;
+    private NetworkSingleton network;
 
     private boolean isConnected = false;
 
@@ -29,12 +30,19 @@ public class NearbyHost implements GoogleApiClient.ConnectionCallbacks,
 
     private NearbyHost(Context mContext) {
         this.mContext = mContext;
+        network = NetworkSingleton.getNetworkInstance(mContext);
 
         mGoogleApiClient = new GoogleApiClient.Builder(mContext)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Nearby.CONNECTIONS_API)
                 .build();
+    }
+
+    public void advertise() {
+        if (network.isConnectedToNetwork()) {
+
+        }
     }
 
     @Override

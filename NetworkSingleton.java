@@ -23,7 +23,7 @@ public class NetworkSingleton {
     private static int[] NETWORK_TYPES = {ConnectivityManager.TYPE_WIFI,
             ConnectivityManager.TYPE_ETHERNET};
 
-    private boolean isConnectedToNetwork() {
+    public boolean isConnectedToNetwork() {
         ConnectivityManager connManager =
                 (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         for (int networkType : NETWORK_TYPES) {
